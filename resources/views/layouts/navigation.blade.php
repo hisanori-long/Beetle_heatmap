@@ -16,6 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
+                        {{ __('レポート作成') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -67,6 +72,12 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
+        <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
+            <x-responsive-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
+                {{ __('レポート作成') }}
+            </x-responsive-nav-link>
+        </div>
+        
 
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
