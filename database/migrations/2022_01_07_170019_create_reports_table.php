@@ -21,6 +21,7 @@ class CreateReportsTable extends Migration
             $table->geometry('location')->comment('緯度・経度');
             $table->boolean('sexual')->comment('False(オス) True(メス)');
             $table->timestamp('created_at');
+            $table->integer("size")->nullable()->comment("cm");
         });
     }
 
