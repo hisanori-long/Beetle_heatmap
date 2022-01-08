@@ -13,7 +13,7 @@ use App\Http\Controllers\ReportsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('reports/search', '\App\Http\Controllers\ReportsController@search')->name("reports.search");
 Route::resource('reports', ReportsController::class);
 
 Route::get('/', function () {

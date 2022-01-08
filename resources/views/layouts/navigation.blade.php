@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
+                    <x-nav-link :href="route('reports.search')" :active="request()->routeIs('reports.search')">
                         {{ __('レポート作成') }}
                     </x-nav-link>
                 </div>
@@ -73,7 +73,7 @@
             </x-responsive-nav-link>
         </div>
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-            <x-responsive-nav-link :href="route('reports.create')" :active="request()->routeIs('reports.create')">
+            <x-responsive-nav-link :href="route('reports.search')" :active="request()->routeIs('reports.search')">
                 {{ __('レポート作成') }}
             </x-responsive-nav-link>
         </div>
