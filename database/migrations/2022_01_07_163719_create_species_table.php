@@ -17,7 +17,7 @@ class CreateSpeciesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->boolean("native");
-
+            $table->integer("reports");
         });
     }
 
