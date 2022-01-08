@@ -18,6 +18,7 @@ class CreateSpeciesTable extends Migration
             $table->string('name');
             $table->boolean("native");
             $table->integer("reports");
+            $table->string("image_url");
         });
     }
 
