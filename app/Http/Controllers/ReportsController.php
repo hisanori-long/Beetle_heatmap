@@ -20,9 +20,7 @@ class ReportsController extends Controller
 
     public function search()
     {
-        return view("reports.search");
         
-        exit;
         $species = Species::orderBy('id')->where(function ($query) {
 
             // 検索機能
@@ -32,7 +30,7 @@ class ReportsController extends Controller
 
             // 8投稿毎にページ移動
         })->paginate(10);
-        return view('species.search',[
+        return view('reports.search',[
             "species" => $species
         ]);
     }
