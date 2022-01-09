@@ -30,11 +30,9 @@
                             @foreach ($species as $spece)
                             <tr>
                                 <td>
-                                {{ asset('public/storage/one.jpg')}}
+
                                     <a href="{{ route('reports.create', ['spece_id' =>$spece->id])}}">
-                                    <img src=" {{ asset('public/storage/one.jpg')}}">
-                                        <p class="hover:text-purple-800 text-center text-grey-dark ">{{$spece->image_url}}</p>
-                                        <p class="hover:text-purple-800 text-center text-grey-dark ">{{ asset('storage/one.jpg')}}</p>
+                                        <img src=" {{ asset('public/storage/one.jpg')}}">
                                     </a>
                                 </td>
                                 <td>
