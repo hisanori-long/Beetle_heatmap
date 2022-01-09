@@ -28,6 +28,7 @@
                         </thead>
                         <tbody>
                             @foreach ($species as $spece)
+                            {{$spece->id}};
                             <tr>
                                 <td>
 

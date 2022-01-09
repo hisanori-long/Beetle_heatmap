@@ -13,9 +13,12 @@ class ReportsController extends Controller
         return view("reports.index");
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        return view("reports.create");
+        $spece_id = $request->input('spece_id'); //$requestのspece_idを所得
+        return view("reports.create", [
+            "spece_id" =>$spece_id
+        ]);
     }
 
     public function search()
