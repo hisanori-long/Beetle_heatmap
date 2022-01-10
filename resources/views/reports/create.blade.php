@@ -30,7 +30,7 @@
         lonlat=null;
       }
 
-      lonlat=e.latlng
+      lonlat=e.latlng;
       addMarker = L.marker(e.latlng).addTo(map);
     }
   </script>
