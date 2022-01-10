@@ -37,4 +37,9 @@ class ReportsController extends Controller
             "species" => $species
         ]);
     }
+
+    public function store(Request $request)
+    {
+        dd($request);
+    }
 }
