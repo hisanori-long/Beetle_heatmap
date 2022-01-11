@@ -24,4 +24,12 @@ Route::get('/dashboard', function () {
     return view('reports.index');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/form', 
+	[App\Http\Controllers\UploadImageController::class, "show"]
+	)->name("image");
+
+    Route::post('/upload', 
+	[App\Http\Controllers\UploadImageController::class, "upload"]
+	)->name("image");
+
 require __DIR__.'/auth.php';

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Species;
+use App\Models\Reports;
+use Validator;
+use Auth;
 
 class ReportsController extends Controller
 {
@@ -40,6 +43,30 @@ class ReportsController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $image = $request->file('image');
+        $image_url = isset($image) ? $image->store('images') : '';
+
+        if($request->sex==0){
+            //オス
+            $sexual=True;
+        }else{
+            //メス
+            $sexual=False;
+        }
+
+        $validator = Validator::make($request->all(), [
+            'size' => 'required',
+            'image' => 'required',
+        ]);
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+              ->route('reports.create')
+              ->withInput()
+              ->withErrors($validator);
+        }
+        $data = $request->merge(['user_id' => Auth::user()->id, 'image_url' => $image_url, "sexual" => $sexual])->all();
+        $result = Reports::create($request->all());
+        return redirect()->route('reports.index');
     }
 }
