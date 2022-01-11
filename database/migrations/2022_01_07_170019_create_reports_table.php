@@ -22,6 +22,7 @@ class CreateReportsTable extends Migration
             $table->boolean('sexual')->comment('False(オス) True(メス)');
             $table->timestamp('created_at');
             $table->integer("size")->nullable()->comment("cm");
+            $table->char("comment", 100)->nullable();
         });
     }
 
