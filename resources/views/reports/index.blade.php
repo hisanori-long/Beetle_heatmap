@@ -8,7 +8,9 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
   <script>
-    function init() {
+    const reports=@json($reports); // phpの変数をjavascriptいいこう
+
+    function init() { //mapの表示
       //ズームコントロールを非表示で地図を作成
       var map = L.map('mapcontainer', { zoomControl: false });
       map.setView([33.59, 130.40], 10);
@@ -19,6 +21,10 @@
       L.control.scale({ maxWidth: 200, position: 'bottomright', imperial: false }).addTo(map);
       //ズームコントロールを左下で地図に追加
       L.control.zoom({ position: 'bottomleft' }).addTo(map);
+      for (const i in reports){
+        const report=reports[i]
+        L.marker([report["lat"],report["lon"]],{title:"桜区役所"}).addTo(map);
+      }
     }
   </script>
 </head>
@@ -34,11 +40,6 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                 <div id="mapcontainer" style="width:600px;height:600px"></div>
-
-                @foreach ($reports as $report)
-                  {{$report}}
-                @endforeach
-
                 </div>
             </div>
         </div>
