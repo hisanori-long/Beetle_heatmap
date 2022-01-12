@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('reports.index');
+    return redirect()->route('reports.index');
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/form', 
