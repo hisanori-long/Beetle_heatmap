@@ -14,6 +14,7 @@ class ReportsController extends Controller
     public function index()
     {
         $reports = Reports::orderBy("id");
+        dd($reports);
         return view("reports.index",[
             "reports"=>$reports
         ]);
