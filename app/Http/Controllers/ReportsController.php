@@ -13,8 +13,7 @@ class ReportsController extends Controller
     //
     public function index()
     {
-        $reports = Reports::orderBy("id");
-        dd($reports);
+        $reports = Reports::get();
         return view("reports.index",[
             "reports"=>$reports
         ]);
