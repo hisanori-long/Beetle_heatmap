@@ -14,8 +14,10 @@ class ReportsController extends Controller
     public function index()
     {
         $reports = Reports::get();
+        $species = Species::get();
         return view("reports.index",[
-            "reports"=>$reports
+            "reports"=>$reports,
+            "species"=>$species
         ]);
     }
 
