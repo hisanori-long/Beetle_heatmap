@@ -25,7 +25,7 @@
       for (const i in reports){
         const report=reports[i]
         var name=species[report["species_id"]]["name"];
-        var sucontent="${name}<img src='/images/zqhVAhRdeIiAqRPAYzuSMSMkSaQyV2dJmHDRaYsD.jpg' width='500' height='375'>"
+        var sucontent="<img src='/images/zqhVAhRdeIiAqRPAYzuSMSMkSaQyV2dJmHDRaYsD.jpg' width='500' height='375'>"
         console.log(sucontent);
         var popup = L.popup({ maxWidth: 550 }).setContent(sucontent);
 
