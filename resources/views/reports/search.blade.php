@@ -22,22 +22,21 @@
                     <table class="w-full border-collapse">
                         <thead>
                             <tr>
-                                <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-lg text-grey-dark border-b border-grey-light"></th>
-                                    <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-lg text-grey-dark border-b border-grey-light">名前</th>
+                                <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-lg text-grey-dark border-b border-grey-light">画像</th>
+                                <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-lg text-grey-dark border-b border-grey-light">名前</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($species as $spece)
                             <tr>
                                 <td>
-
                                     <a href="{{ route('reports.create', ['spece_id' =>$spece->id])}}">
-                                        <img src="/storage/species/{{$spece->image_url}}" width='250' height=10>
+                                        <img src="/storage/species/{{$spece->image_url}}" style="max-width:300px;margin-left:auto;margin-right:auto;">
                                     </a>
                                 </td>
                                 <td>
                                     <a href="{{ route('reports.create', ['spece_id' =>$spece->id])}}">
-                                        <h3 class="hover:text-purple-800 text-center text-grey-dark">{{$spece->name}}</h3>
+                                        <h3 class="hover:text-purple-800 text-center text-grey-dark" style="margin-left:auto;margin-right:auto;">{{$spece->name}}</h3>
                                     </a>
                                 </td>
                             </tr>
