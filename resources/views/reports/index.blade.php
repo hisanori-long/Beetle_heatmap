@@ -14,7 +14,7 @@
     function init() { //mapの表示
       //ズームコントロールを非表示で地図を作成
       var map = L.map('mapcontainer', { zoomControl: false });
-      map.setView([33.59, 130.40], 10);
+      map.setView([33.59, 130.40], 11);
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution:  '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);
@@ -45,9 +45,21 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                <div id="mapcontainer" style="width:600px;height:600px"></div>
-                <img src='/images/zqhVAhRdeIiAqRPAYzuSMSMkSaQyV2dJmHDRaYsD.jpg' width='500' height='375'>
-
+                <div id="mapcontainer" style="width:1100px;height:600px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                  @foreach($reports as $report)
+                    {{$report -> image_url}}
+                    <div class="">
+                      <img src="/{{$report -> image_url}}" width='500' height='375'>
+                    </div>
+                  @endforeach
                 </div>
             </div>
         </div>
