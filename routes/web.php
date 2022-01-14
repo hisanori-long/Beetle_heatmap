@@ -14,6 +14,7 @@ use App\Http\Controllers\ReportsController;
 |
 */
 Route::get('reports/search', '\App\Http\Controllers\ReportsController@search')->name("reports.search");
+Route::get('reports/heatmap', '\App\Http\Controllers\ReportsController@heatmap')->name("reports.heatmap");
 Route::resource('reports', ReportsController::class);
 
 Route::get('/', function () {
@@ -25,11 +26,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/form', 
-	[App\Http\Controllers\UploadImageController::class, "show"]
+	[App\Http\Controllers\ReportsController::class, "show"]
 	)->name("image");
 
     Route::post('/upload', 
-	[App\Http\Controllers\UploadImageController::class, "upload"]
+	[App\Http\Controllers\ReportsController::class, "upload"]
 	)->name("image");
 
 require __DIR__.'/auth.php';
