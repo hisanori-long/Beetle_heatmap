@@ -13,7 +13,12 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
-                        {{ __('カブトムシの分布') }}
+                        {{ __('カブトムシ・クワガタの分布') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('reports.heatmap')" :active="request()->routeIs('reports.heatmap')">
+                        {{ __('外来種の分布') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
@@ -69,7 +74,12 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('reports.index')" :active="request()->routeIs('reports.index')">
-                {{ __('カブトムシの分布図') }}
+                {{ __('カブトムシ・クワガタの分布図') }}
+            </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+            <x-responsive-nav-link :href="route('reports.heatmap')" :active="request()->routeIs('reports.heatmap')">
+                {{ __('外来種') }}
             </x-responsive-nav-link>
         </div>
         <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

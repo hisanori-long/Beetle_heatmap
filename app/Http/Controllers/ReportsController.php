@@ -21,6 +21,15 @@ class ReportsController extends Controller
         ]);
     }
 
+    public function heatmap()
+    {
+        $species_id=Species::where("native", 0)->pluck("id");
+        $reports=Reports::whereIn("species_id", $species_id)->get();
+        return view("reports.heatmap", [
+            "reports" =>$reports
+        ]);
+    }
+
     public function create(Request $request)
     {
         $spece_id = $request->input('spece_id'); //$requestのspece_idを所得
