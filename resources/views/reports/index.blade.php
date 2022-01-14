@@ -25,8 +25,8 @@
       for (const i in reports){
         const report=reports[i]
         var name=species[report["species_id"]]["name"];
-        var sucontent="<img src='/images/zqhVAhRdeIiAqRPAYzuSMSMkSaQyV2dJmHDRaYsD.jpg' width='500' height='375'>"
-        console.log(sucontent);
+        var image_url="/"+report["image_url"];
+        var sucontent=name+'<img src='+image_url+' style="max-width:350px;">';
         var popup = L.popup({ maxWidth: 550 }).setContent(sucontent);
 
         L.marker([report["lat"],report["lon"]],{title:report["id"]}).bindPopup(popup).addTo(map);
@@ -45,7 +45,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                <div id="mapcontainer" style="width:1100px;height:600px"></div>
+                    <div id="mapcontainer" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div>
                 </div>
             </div>
         </div>
