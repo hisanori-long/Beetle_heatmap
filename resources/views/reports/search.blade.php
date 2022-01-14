@@ -11,7 +11,7 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 bg-white border-b border-gray-200">
                         <form class="form-inline my-2 my-lg-0 ml-2">
-                            <input class="border py-2 px-30 text-grey-darkest" type="search" name="search" id="search" value="{{request('find_user')}}" placeholder="検索したいユーザー名" aria-label="検索">
+                            <input class="border py-2 px-30 text-grey-darkest" type="search" name="search" id="search" value="{{request('find_user')}}" placeholder="生き物の名前を入力" aria-label="検索">
                             <button type="submit" class="border py-2 px-3 text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
                                 検索する
                             </button>
@@ -28,12 +28,11 @@
                         </thead>
                         <tbody>
                             @foreach ($species as $spece)
-                            {{$spece->id}};
                             <tr>
                                 <td>
 
                                     <a href="{{ route('reports.create', ['spece_id' =>$spece->id])}}">
-                                        <img src=" {{ asset('public/storage/one.jpg')}}">
+                                        <img src="/storage/species/{{$spece->image_url}}" width='250' height=10>
                                     </a>
                                 </td>
                                 <td>
