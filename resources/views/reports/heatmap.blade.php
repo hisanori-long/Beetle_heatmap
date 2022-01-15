@@ -51,9 +51,7 @@
         <div class=" max-w-7xl mx-auto sm:w-10/12 md:w-8/10 lg:w-8/12">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div id="map" style="width: 600px; height: 400px"></div>
-                    <!-- <div id="map-canvas" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div> -->
-                    {{$reports}}
+                    <div id="map" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div>
                 </div>
             </div>
         </div>
