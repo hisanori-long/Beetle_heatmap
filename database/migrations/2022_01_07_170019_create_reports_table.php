@@ -23,7 +23,7 @@ class CreateReportsTable extends Migration
             $table->boolean('sexual')->comment("True:オス, False:メス");
             $table->timestamp('updated_at');
             $table->timestamp('created_at');
-            $table->integer("size")->comment("cm");
+            $table->double("size", 3)->comment("cm");
             $table->char("comment", 100)->nullable();
         });
     }
