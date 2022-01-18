@@ -10,7 +10,7 @@
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
   <script>
     const reports=@json($reports); // phpの変数をjavascriptいいこう
-    const species=@json($species)
+    const species=@json($species);
 
     function init() { //mapの表示
       //ズームコントロールを非表示で地図を作成
