@@ -14,7 +14,13 @@ class ReportsController extends Controller
     //
     public function index()
     {
-        $reports = Reports::get();
+        $reports = Reports::orderby("size", "desc")->get();//->where(function ($query) {
+        //     // 検索機能
+        //     if ($drop_id = request('drop_id')) {
+        //         $query->where('spece_id', 'LIKE', $search_id);
+        //     }
+        //     // 8投稿毎にページ移動
+        // });
         $species = Species::get();
         $users = User::get();
         return view("reports.index",[
@@ -45,12 +51,10 @@ class ReportsController extends Controller
     {
         
         $species = Species::orderBy('id')->where(function ($query) {
-
             // 検索機能
             if ($search = request('search')) {
                 $query->where('name', 'LIKE', "%{$search}%");
             }
-
             // 8投稿毎にページ移動
         })->paginate(10);
         return view('reports.search',[
