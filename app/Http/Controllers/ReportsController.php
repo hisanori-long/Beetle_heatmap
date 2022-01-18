@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Species;
 use App\Models\Reports;
+use App\Models\User;
 use Validator;
 use Auth;
 
@@ -15,9 +16,11 @@ class ReportsController extends Controller
     {
         $reports = Reports::get();
         $species = Species::get();
+        $users = User::get();
         return view("reports.index",[
             "reports"=>$reports,
-            "species"=>$species
+            "species"=>$species,
+            "users"=>$users
         ]);
     }
 

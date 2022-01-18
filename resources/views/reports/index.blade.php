@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>home</title>
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
   <script>
@@ -51,18 +52,41 @@
         </div>
     </div>
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                  @foreach($reports as $report)
-                    {{$report -> image_url}}
-                    <div class="">
-                      <img src="/{{$report -> image_url}}" width='500' height='375'>
-                    </div>
-                  @endforeach
-                </div>
+      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+          <div class="p-6 bg-white border-b border-gray-200">
+          @foreach($reports as $report)
+            <div class="">
+                    <?php 
+                      //カブトムシ名を所得
+                      $spece_id = $report->species_id; //各レポートのspece_idを定義
+                      $species_array = json_decode($species, true);
+                      $spece=$species_array[array_search($spece_id ,array_column($species_array, "id"))];
+                      //投稿したユーザを所得
+                      $user_id=$report->user_id; //各レポートのuser_idを定義
+                      $users_array = json_decode($users,true);
+                      $user=$users_array[array_search($user_id ,array_column($users_array, "id"))];
+                    ?>
+
+                      <div class="row">
+                        <p>{{$spece["name"]}}</p>
+                        <img src="/{{$report -> image_url}}" width='350' height='175'>
+                        <div class="row">
+                          <p>{{$user["name"]}}</p>
+                          <p>{{$report->size}}</p>
+                          <p>{{$report->created_at}}</p>
+                          <p>{{$report->comment}}</p>
+                          @if($report->sexual === 1)
+                            <p>オス</p>
+                          @else
+                            <p>メス</p>
+                          @endif
+                      </div>
             </div>
+          @endforeach
+          </div>
         </div>
+      </div>
     </div>
 </body>
 </html>
