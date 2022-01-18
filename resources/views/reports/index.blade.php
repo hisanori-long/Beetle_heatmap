@@ -56,7 +56,7 @@
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
           <div class="p-6 bg-white border-b border-gray-200">
           @foreach($reports as $report)
-            <div class="">
+            <div>
                     <?php 
                       //カブトムシ名を所得
                       $spece_id = $report->species_id; //各レポートのspece_idを定義
@@ -67,21 +67,22 @@
                       $users_array = json_decode($users,true);
                       $user=$users_array[array_search($user_id ,array_column($users_array, "id"))];
                     ?>
-
-                      <div class="row">
-                        <p>{{$spece["name"]}}</p>
-                        <img src="/{{$report -> image_url}}" width='350' height='175'>
-                        <div class="row">
-                          <p>{{$user["name"]}}</p>
-                          <p>{{$report->size}}</p>
-                          <p>{{$report->created_at}}</p>
-                          <p>{{$report->comment}}</p>
+                      <p class="font-semibold text-xl text-gray-800 leading-tight">{{$spece["name"]}}</p>
+                      <div style="display: flex;margin-bottom:20px;margin-top:10px;">
+                        <img src="/{{$report -> image_url}}" style="width:200px;height:135px;margin-left:10px;">
+                        <div style="margin-top:20px;">
+                          <p class="font-semibold text-l text-gray-800 leading-tight" style="margin-left:20px;margin-top:3px;">発見者：{{$user["name"]}}</p>
+                          <p class="font-semibold text-l text-gray-800 leading-tight" style="margin-left:20px;margin-top:3px;">大きさ：{{$report->size}} cm</p>
+                          <p class="font-semibold text-l text-gray-800 leading-tight" style="margin-left:20px;margin-top:3px;">発見日：{{$report->created_at}}</p>
                           @if($report->sexual === 1)
-                            <p>オス</p>
+                            <p class="font-semibold text-l text-gray-800 leading-tight" style="margin-left:20px;margin-top:3px;">性別　：オス</p>
                           @else
-                            <p>メス</p>
+                            <p class="font-semibold text-l text-gray-800 leading-tight" style="margin-left:20px;margin-top:3px;">性別　：メス</p>
                           @endif
+                          <p class="font-semibold text-m text-gray-800 leading-tight" style="margin-left:20px;margin-top:20px;">{{$report->comment}}</p>
+                        </div>
                       </div>
+                      <p style="border-bottom: 1px solid gray;margin-bottom:30px;"></p>
             </div>
           @endforeach
           </div>
