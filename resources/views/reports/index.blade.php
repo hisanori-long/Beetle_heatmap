@@ -46,7 +46,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div id="mapcontainer" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div>
+                  <div style="float: right;padding-right:35px;padding-bottom:20px;">
+                    <select class="text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg" id="spece_id" name="select_id">
+                      <option>全て</option>
+                      @foreach ($species as $spece)
+                        <option value="{{ $spece->id }}">{{ $spece->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                  <div id="mapcontainer" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div>
                 </div>
             </div>
         </div>

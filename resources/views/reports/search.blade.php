@@ -1,5 +1,4 @@
 <x-app-layout>
-<script type='text/javascript'>alert('危険が予想される地域には、立ち入らないでください！');</script>
 
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">

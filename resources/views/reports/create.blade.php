@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.0/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.3.0/dist/leaflet.js"></script>
+  <script type='text/javascript'>alert('危険が予想される地域には、立ち入らないでください！');</script>
   <script>
     //地図オブジェクトを入れる変数をグローバルにする
     var map;

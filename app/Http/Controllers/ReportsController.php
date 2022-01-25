@@ -21,7 +21,7 @@ class ReportsController extends Controller
         //     }
         //     // 8投稿毎にページ移動
         // });
-        $species = Species::get();
+        $species = Species::orderby("id", "desc")->get();
         $users = User::get();
         return view("reports.index",[
             "reports"=>$reports,
