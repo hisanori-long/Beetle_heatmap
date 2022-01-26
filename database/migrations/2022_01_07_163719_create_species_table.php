@@ -19,6 +19,7 @@ class CreateSpeciesTable extends Migration
             $table->boolean("native");
             $table->integer("reports");
             $table->string("image_url");
+            $table->boolean("unvisible");
         });
     }
 
