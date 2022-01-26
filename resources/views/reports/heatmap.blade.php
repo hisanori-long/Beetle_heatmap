@@ -53,7 +53,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                   <div style="float: right;padding-right:35px;padding-bottom:20px;">
                     <form class="form-inline my-2 my-lg-0 ml-2">
-                      <select id="select_id" name="select_id" type="search" class="text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg">
+                      <select id="select_id" name="select_id" type="search" style="width:220px;" class="text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg">
                         <option selected value="">全て</option>
                         @foreach ($species as $spece)
                           <option value="{{ $spece->id }}">{{ $spece->name }}</option>
