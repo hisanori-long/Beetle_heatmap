@@ -32,7 +32,7 @@
                             <tr>
                                 <td>
                                     <a href="{{ route('reports.create', ['spece_id' =>$spece->id])}}">
-                                        <img src="/storage/species/{{$spece->image_url}}" style="max-width:270px;margin-left:auto;margin-right:auto;">
+                                        <img src="/storage/species/{{$spece->image_url}}" style="width:270px;margin-left:auto;margin-right:auto;">
                                     </a>
                                 </td>
                                 <td>
