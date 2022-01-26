@@ -14,13 +14,11 @@ class ReportsController extends Controller
     //
     public function index()
     {
-        $reports = Reports::orderby("size", "desc")->get();//->where(function ($query) {
-        //     // 検索機能
-        //     if ($drop_id = request('drop_id')) {
-        //         $query->where('spece_id', 'LIKE', $search_id);
-        //     }
-        //     // 8投稿毎にページ移動
-        // });
+        $reports = Reports::orderby("size", "desc")->where(function ($query) {
+            if ($search = request('select_id')) {
+                $query->where('species_id', '=', $search);
+            }
+        })->get();
         $species = Species::orderby("id", "desc")->get();
         $users = User::get();
         return view("reports.index",[
@@ -33,9 +31,15 @@ class ReportsController extends Controller
     public function heatmap()
     {
         $species_id=Species::where("native", 0)->pluck("id");
-        $reports=Reports::whereIn("species_id", $species_id)->get();
+        $species=Species::where("native", 0)->get();
+        $reports=Reports::whereIn("species_id", $species_id)->where(function ($query) {
+            if ($search = request('select_id')) {
+                $query->where('species_id', '=', $search);
+            }
+        })->get();
         return view("reports.heatmap", [
-            "reports" =>$reports
+            "reports" =>$reports,
+            "species" =>$species
         ]);
     }
 

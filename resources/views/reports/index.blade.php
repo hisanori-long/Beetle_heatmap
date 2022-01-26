@@ -25,7 +25,10 @@
       L.control.zoom({ position: 'bottomleft' }).addTo(map);
       for (const i in reports){
         const report=reports[i]
-        var name=species[report["species_id"]]["name"];
+        var spece=species.filter(function (spece){
+          return spece.id == report["species_id"]
+        });
+        var name =spece[0]["name"];
         var image_url="/"+report["image_url"];
         var sucontent=name+'<img src='+image_url+' style="max-width:350px;">';
         var popup = L.popup({ maxWidth: 550 }).setContent(sucontent);
@@ -47,12 +50,17 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                   <div style="float: right;padding-right:35px;padding-bottom:20px;">
-                    <select class="text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg" id="spece_id" name="select_id">
-                      <option>全て</option>
-                      @foreach ($species as $spece)
-                        <option value="{{ $spece->id }}">{{ $spece->name }}</option>
-                      @endforeach
-                    </select>
+                    <form class="form-inline my-2 my-lg-0 ml-2">
+                      <select id="select_id" name="select_id" type="search" class="text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg">
+                        <option selected value="">全て</option>
+                        @foreach ($species as $spece)
+                          <option value="{{ $spece->id }}">{{ $spece->name }}</option>
+                        @endforeach
+                      </select>
+                      <button type="submit" style="background-color: rgba(230, 230, 235, .5);" class="border py-2 px-3 text-grey-darkest  font-medium tracking-widest text-black uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
+                        　を表示　
+                      </button>
+                    </form>
                   </div>
                   <div id="mapcontainer" style="width:1100px;height:600px;margin-left:auto;margin-right:auto;"></div>
                 </div>
