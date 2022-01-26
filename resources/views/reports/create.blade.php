@@ -72,7 +72,7 @@
                           <input class="border py-2 px-3 text-grey-darkest" type="text" name="comment" id="comment" style="margin-bottom:10px;">
 
                           <label class="font-100 text-xl text-gray-800 leading-tight" for="image">画像</label>
-                          <input type="file" name="image" accept="image/png, image/jpeg" />
+                          <input type="file" name="image" accept="image/png, image/jpeg, image/HEIC" />
                         </div>
                         <button onclick="funcBtn();" type="submit" style="background-color: rgba(230, 230, 235, .5);" class="w-full py-3 mt-6 font-medium tracking-widest text-black uppercase bg-black shadow-lg focus:outline-none hover:bg-gray-900 hover:shadow-none">
                             submit
